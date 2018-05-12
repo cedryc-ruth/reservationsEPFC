@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/shows', 'ShowController@index')->name('shows.index');
+Route::get('/shows/{id}', 'ShowController@show',['id'])->name('shows.show');
+Route::delete('/shows/{id}', 'ShowController@destroy',['id'])->name('shows.destroy');
+
+Route::resource('locations','LocationController');
