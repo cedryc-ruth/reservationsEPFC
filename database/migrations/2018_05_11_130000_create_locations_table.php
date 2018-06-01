@@ -18,11 +18,16 @@ class CreateLocationsTable extends Migration
             $table->string('slug',60);
             $table->string('designation',60);
             $table->string('address');
-            $table->integer('locality_id');
+            $table->unsignedInteger('locality_id');
             $table->string('website')->nullable();
             $table->string('phone',30)->nullable();
             
+            $table->index('locality_id');
             $table->timestamps();
+            
+            $table->foreign('locality_id')
+                    ->references('id')
+                    ->on('localities');
         });
     }
 
