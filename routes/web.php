@@ -20,3 +20,9 @@ Route::get('/shows/{id}', 'ShowController@show',['id'])->name('shows.show');
 Route::delete('/shows/{id}', 'ShowController@destroy',['id'])->name('shows.destroy');
 
 Route::resource('locations','LocationController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profil', 'Auth\RegisterController@showProfilForm')->name('profil');
+Route::post('/profil', 'Auth\RegisterController@updateProfil')->name('update');
